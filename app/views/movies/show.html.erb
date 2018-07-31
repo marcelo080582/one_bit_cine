@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @movie.name %>
+ <strong><%= translate 'activerecord.attributes.movie.name'%>:</strong>
+ <%= @movie.name %>
 </p>
 
 <p>
-  <strong>Director:</strong>
-  <%= @movie.director %>
+ <strong><%= translate 'activerecord.attributes.movie.director'%>:</strong>
+ <%= @movie.director %>
 </p>
 
 <p>
-  <strong>Run time:</strong>
-  <%= @movie.run_time %>
+ <strong><%= translate 'activerecord.attributes.movie.run_time'%>:</strong>
+ <%= @movie.run_time %>
 </p>
 
 <p>
-  <strong>Release date:</strong>
-  <%= @movie.release_date %>
+ <strong><%= translate 'activerecord.attributes.movie.release_date'%>:</strong>
+ <%= localize(@movie.release_date, format: :long) %>
 </p>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+<%= link_to "#{translate 'actions.edit'}", edit_movie_path(@movie) %> |
+<%= link_to "#{translate 'actions.back'}", movies_path %>

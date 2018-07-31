@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= t 'movies.title' %></h1>
-<h4><%= t 'movies.subtitle' %></h4>
+<h1><%= translate 'movies.title' %></h1>
+<h4><%= translate 'movies.subtitle' %></h4>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Director</th>
-      <th>Run time</th>
-      <th>Release date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+ <thead>
+   <tr>
+     <th><%= @movies.human_attribute_name("name") %></th>
+     <th><%= @movies.human_attribute_name("director") %></th>
+     <th><%= @movies.human_attribute_name("run_time") %></th>
+     <th><%= @movies.human_attribute_name("release_date") %></th>
+     <th colspan="3"></th>
+   </tr>
+ </thead>
 
-  <tbody>
-    <% @movies.each do |movie| %>
-      <tr>
-        <td><%= movie.name %></td>
-        <td><%= movie.director %></td>
-        <td><%= movie.run_time %></td>
-        <td><%= localize(movie.release_date, format: :long) %></td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+ <tbody>
+   <% @movies.each do |movie| %>
+     <tr>
+       <td><%= movie.name %></td>
+       <td><%= movie.director %></td>
+       <td><%= movie.run_time %></td>
+       <td><%= localize(movie.release_date, format: :long) %></td>
+       <td><%= link_to "#{translate 'actions.show'}", movie %></td>
+       <td><%= link_to "#{translate 'actions.edit'}", edit_movie_path(movie) %></td>
+       <td><%= link_to "#{translate 'actions.destroy'}", movie, method: :delete, data: { confirm: "#{translate 'confirm'}" } %></td>
+     </tr>
+   <% end %>
+ </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Movie', new_movie_path %>
+<%= link_to "#{translate 'actions.new'}", new_movie_path %>
