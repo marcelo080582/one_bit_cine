@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Movies</h1>
+<h1><%= t 'movies.title' %></h1>
+<h4><%= t 'movies.subtitle' %></h4>
 
 <table>
   <thead>
@@ -19,7 +20,7 @@
         <td><%= movie.name %></td>
         <td><%= movie.director %></td>
         <td><%= movie.run_time %></td>
-        <td><%= movie.release_date %></td>
+        <td><%= localize(movie.release_date, format: :long) %></td>
         <td><%= link_to 'Show', movie %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
